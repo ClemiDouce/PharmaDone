@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://BaseScreen.gd" type="Script" id=1]
+
+[node name="PosteScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screen" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 720.0
+margin_bottom = 54.0
+rect_min_size = Vector2( 720, 0 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="ScrollContainer/Screen"]
+margin_right = 720.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="PharmacieTitle" type="Label" parent="ScrollContainer/Screen/Header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PHARMACIE DE LA SCHTROUMPFERIE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveButton" type="Button" parent="ScrollContainer/Screen/Header"]
+margin_left = 509.0
+margin_top = 7.0
+margin_right = 674.0
+margin_bottom = 42.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExportButton" type="Button" parent="ScrollContainer/Screen/Header"]
+visible = false
+margin_left = 626.0
+margin_top = 13.0
+margin_right = 709.0
+margin_bottom = 33.0
+text = "Export"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="ScrollContainer/Screen/Header"]
+margin_left = 15.0
+margin_top = 7.0
+margin_right = 180.0
+margin_bottom = 42.0
+text = "Retour"
+
+[node name="Postes" type="VBoxContainer" parent="ScrollContainer/Screen"]
+margin_top = 54.0
+margin_right = 720.0
+margin_bottom = 54.0
+
+[connection signal="pressed" from="ScrollContainer/Screen/Header/SaveButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="ScrollContainer/Screen/Header/ExportButton" to="." method="_on_ExportButton_pressed"]
+[connection signal="pressed" from="ScrollContainer/Screen/Header/BackButton" to="." method="_on_BackButton_pressed"]

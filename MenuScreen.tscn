@@ -1,0 +1,144 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MenuScreen.gd" type="Script" id=1]
+[ext_resource path="res://LineComptoir.tscn" type="PackedScene" id=2]
+[ext_resource path="res://font/InputFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://font/BigInputFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://PressedButton.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
+
+[node name="MenuScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 110.0
+margin_top = 297.0
+margin_right = 610.0
+margin_bottom = 782.0
+rect_min_size = Vector2( 500, 0 )
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NomPharmaLine" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 35.0
+custom_constants/separation = 12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/NomPharmaLine"]
+margin_top = 9.0
+margin_right = 117.0
+margin_bottom = 26.0
+text = "Nom Pharmacie"
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/NomPharmaLine"]
+margin_left = 129.0
+margin_right = 500.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Salut la mif"
+
+[node name="PosteServeur" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 55.0
+margin_right = 500.0
+margin_bottom = 105.0
+custom_constants/separation = 29
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/PosteServeur"]
+margin_top = 16.0
+margin_right = 104.0
+margin_bottom = 33.0
+text = "Poste Serveur"
+
+[node name="SpinBox" parent="CenterContainer/VBoxContainer/PosteServeur" instance=ExtResource( 5 )]
+
+[node name="NbrComptoir" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 125.0
+margin_bottom = 185.0
+
+[node name="NbrDeballage" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 205.0
+margin_bottom = 265.0
+title = "Déballage"
+
+[node name="NbrBureau" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 285.0
+margin_bottom = 345.0
+title = "Bureautique"
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 365.0
+margin_right = 500.0
+margin_bottom = 415.0
+rect_min_size = Vector2( 0, 50 )
+text = "Créer"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 435.0
+margin_right = 500.0
+margin_bottom = 485.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 287.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadFile" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 291.0
+margin_right = 405.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+text = "Charger"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteFile" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color( 0.94902, 0.592157, 0.592157, 1 )
+margin_left = 409.0
+margin_right = 499.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "Supprimer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/LoadFile" to="." method="_on_LoadFile_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/DeleteFile" to="." method="_on_DeleteFile_pressed"]

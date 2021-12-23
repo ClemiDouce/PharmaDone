@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LineComptoir.gd" type="Script" id=1]
+[ext_resource path="res://font/InputFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://font/BigInputFont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
+
+[node name="LigneComptoir" type="HBoxContainer"]
+margin_right = 500.0
+margin_bottom = 50.0
+theme = SubResource( 1 )
+custom_constants/separation = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_top = 21.0
+margin_right = 112.0
+margin_bottom = 38.0
+text = "Poste Comptoir"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 132.0
+margin_right = 232.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 50 )
+custom_fonts/font = ExtResource( 3 )
+align = 1
+
+[node name="LessButton" type="Button" parent="."]
+margin_left = 252.0
+margin_right = 312.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+text = "-"
+
+[node name="MoreButton" type="Button" parent="."]
+margin_left = 332.0
+margin_right = 392.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+text = "+"
+
+[connection signal="pressed" from="LessButton" to="." method="_on_LessButton_pressed"]
+[connection signal="pressed" from="MoreButton" to="." method="_on_MoreButton_pressed"]

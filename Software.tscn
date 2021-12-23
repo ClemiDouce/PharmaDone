@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Software.gd" type="Script" id=1]
+[ext_resource path="res://BaseScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MenuScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://font/InputFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 4 )
+
+[node name="Software" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuScreen" parent="." instance=ExtResource( 3 )]
+
+[node name="PosteScreen" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Credit" type="Label" parent="."]
+self_modulate = Color( 0.807843, 0.803922, 0.803922, 1 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -295.0
+margin_top = -26.0
+margin_right = -11.0
+margin_bottom = -9.0
+text = "Made by Clémentine \"Dupy\" Ducournau"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="launch" from="MenuScreen" to="." method="_on_MenuScreen_launch"]
+[connection signal="launch_loaded" from="MenuScreen" to="." method="_on_MenuScreen_launch_loaded"]
+[connection signal="backed" from="PosteScreen" to="." method="_on_PosteScreen_backed"]

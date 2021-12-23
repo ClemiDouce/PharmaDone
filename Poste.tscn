@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Poste.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.32549, 0.294118, 0.294118, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.309804, 0.309804, 0.309804, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="Comptoir" type="VBoxContainer"]
+margin_right = 720.0
+margin_bottom = 240.0
+custom_constants/separation = 0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="HBoxContainer" parent="."]
+margin_right = 720.0
+margin_bottom = 40.0
+custom_constants/separation = 0
+
+[node name="Panel" type="Panel" parent="Header"]
+margin_right = 102.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Header/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Param"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="Header"]
+margin_left = 102.0
+margin_right = 205.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label2" type="Label" parent="Header/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Test"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Header"]
+margin_left = 205.0
+margin_right = 720.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Header/Panel3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "POSTE COMPTOIR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineContainer" type="VBoxContainer" parent="."]
+margin_top = 40.0
+margin_right = 720.0
+margin_bottom = 40.0
+custom_constants/separation = 0
